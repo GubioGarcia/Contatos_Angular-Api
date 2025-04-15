@@ -36,7 +36,7 @@ public class ContactController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMedico(@PathVariable Long id) {
+    public void deleteContact(@PathVariable Long id) {
         this.contactService.delete(id);
     }
 }
