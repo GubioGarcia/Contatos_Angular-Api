@@ -1,0 +1,26 @@
+.formAdd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-right: 5px;
+  margin-left: 15px;
+}
+
+.mensagem-sucesso {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.mensagem-erro {
+  color: red;
+  margin-bottom: 10px;
+}

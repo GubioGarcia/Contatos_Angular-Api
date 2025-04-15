@@ -1,0 +1,22 @@
+<h2>Adicionar Contato</h2>
+<form (ngSubmit)="addContact()">
+  <div class="formAdd">
+    <div class="input-container">
+      <label for="nome"><strong>Nome: </strong></label>
+      <input id="nome" type="text" pInputText [(ngModel)]="nome" name="nome" required />
+
+      <label for="email"><strong>E-mail: </strong></label>
+      <input id="email" type="text" pInputText [(ngModel)]="email" name="email" required />
+
+      <label for="telefone"><strong>Telefone:</strong></label>
+      <input id="telefone" type="text" pInputText [(ngModel)]="telefone" name="telefone" required />
+    </div>
+  </div>
+  <button type="submit" pButton label="Adicionar Contato"></button>
+</form>
+
+<br>
+
+<div *ngIf="mensagem" [ngClass]="tipoMensagem === 'erro' ? 'mensagem-erro' : 'mensagem-sucesso'">
+  {{ mensagem }}
+</div>

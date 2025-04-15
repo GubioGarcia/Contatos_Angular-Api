@@ -1,0 +1,27 @@
+<div class="header">
+  <h2>Contatos</h2>
+</div>
+
+<div *ngIf="contatos.length === 0" class="alert alert-info">
+  Nenhum contato encontado.
+</div>
+
+<ul *ngIf="contatos.length > 0">
+  <li *ngFor="let contato of contatos" style="margin-bottom: 1rem;">
+    {{ contato.nome }}
+    {{ contato.email }}
+    {{ contato.telefone }}
+
+    <button type="button" (click)="viewContact(contato)">Visualizar contato</button>
+    <button type="button" *ngIf="contato.id !== undefined" (click)="deleteContact(contato.id)">Excluir contato</button>
+  </li>
+</ul>
+
+<p-dialog header="Visualizar Contato" [(visible)]="displayDialogView" modal="true" [style]="{width: '30vw'}" [closable]="true">
+  <div *ngIf="contatoSelecionado">
+    <p><strong>ID:</strong> {{ contatoSelecionado.id }}</p>
+    <p><strong>Nome:</strong> {{ contatoSelecionado.nome }}</p>
+    <p><strong>E-mail:</strong> {{ contatoSelecionado.email }}</p>
+    <p><strong>Telefone:</strong> {{ contatoSelecionado.telefone }}</p>
+  </div>
+</p-dialog>
