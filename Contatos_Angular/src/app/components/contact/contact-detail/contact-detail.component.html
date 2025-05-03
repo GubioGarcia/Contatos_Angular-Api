@@ -1,0 +1,12 @@
+<p-dialog header="Visualizar Contato" [(visible)]="displayDialogView" modal="true" [style]="{width: '30vw'}" [closable]="true" (onHide)="fecharDialog()">
+  <div *ngIf="contatoSelecionado">
+    <p><strong>ID:</strong> {{ contatoSelecionado.id }}</p>
+    <p><strong>Nome:</strong> {{ contatoSelecionado.nome }}</p>
+    <p><strong>E-mail:</strong> {{ contatoSelecionado.email }}</p>
+    <p><strong>Telefone:</strong> {{ contatoSelecionado.telefone }}</p>
+    <!-- <p-button label="Editar" severity="warn" (click)="viewContact(contato)"></p-button> -->
+    <p-button label="Excluir" severity="danger" *ngIf="contatoSelecionado.id !== undefined" (click)="deleteContact(contatoSelecionado.id)"></p-button>
+  </div>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>

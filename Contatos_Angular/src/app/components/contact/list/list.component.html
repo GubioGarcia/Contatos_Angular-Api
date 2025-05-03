@@ -2,26 +2,37 @@
   <h2>Contatos</h2>
 </div>
 
+<p-table [value]="contatos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-contato>
+    <tr>
+      <td>{{ contato.nome }}</td>
+      <td>{{ contato.email }}</td>
+      <td>{{ contato.telefone }}</td>
+      <td class="buttonsActions">
+        <p-button label="Visualizar" severity="info" (click)="viewContact(contato)"></p-button>
+        <p-button label="Excluir" severity="danger" *ngIf="contato.id !== undefined" (click)="deleteContact(contato.id)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
 <div *ngIf="contatos.length === 0" class="alert alert-info">
   Nenhum contato encontado.
 </div>
 
-<ul *ngIf="contatos.length > 0">
-  <li *ngFor="let contato of contatos" style="margin-bottom: 1rem;">
-    {{ contato.nome }}
-    {{ contato.email }}
-    {{ contato.telefone }}
+<app-contact-detail
+  [contatoSelecionado]="contatoSelecionado"
+  [(displayDialogView)]="displayDialogView"
+  (closeDialog)="onCloseDialog()">
+</app-contact-detail>
 
-    <button type="button" (click)="viewContact(contato)">Visualizar contato</button>
-    <button type="button" *ngIf="contato.id !== undefined" (click)="deleteContact(contato.id)">Excluir contato</button>
-  </li>
-</ul>
-
-<p-dialog header="Visualizar Contato" [(visible)]="displayDialogView" modal="true" [style]="{width: '30vw'}" [closable]="true">
-  <div *ngIf="contatoSelecionado">
-    <p><strong>ID:</strong> {{ contatoSelecionado.id }}</p>
-    <p><strong>Nome:</strong> {{ contatoSelecionado.nome }}</p>
-    <p><strong>E-mail:</strong> {{ contatoSelecionado.email }}</p>
-    <p><strong>Telefone:</strong> {{ contatoSelecionado.telefone }}</p>
-  </div>
-</p-dialog>
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
