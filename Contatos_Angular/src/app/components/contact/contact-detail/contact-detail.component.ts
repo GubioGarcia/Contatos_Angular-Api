@@ -7,14 +7,19 @@ import { ContactService } from '../../../service/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { ContactEditComponent } from '../contact-edit/contact-edit.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact-detail',
   imports: [
     CommonModule,
+    FormsModule,
     DialogModule,
     ButtonModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RouterModule
   ],
   providers:[MessageService, ConfirmationService],
   templateUrl: './contact-detail.component.html',
@@ -23,8 +28,10 @@ import { ButtonModule } from 'primeng/button';
 export class ContactDetailComponent {
   @Input() contatoSelecionado?: Contact;
   @Input() displayDialogView: boolean = false;
+  @Input() displayDialogEdit: boolean = false;
   @Output() displayDialogViewChange = new EventEmitter<boolean>();
   @Output() closeDialog = new EventEmitter<void>();
+  @Output() editarContato = new EventEmitter<Contact>();
   errorMessage: string = '';
 
   constructor(private contactService: ContactService, private messageService: MessageService,

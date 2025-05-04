@@ -4,8 +4,10 @@
     <p><strong>Nome:</strong> {{ contatoSelecionado.nome }}</p>
     <p><strong>E-mail:</strong> {{ contatoSelecionado.email }}</p>
     <p><strong>Telefone:</strong> {{ contatoSelecionado.telefone }}</p>
-    <!-- <p-button label="Editar" severity="warn" (click)="viewContact(contato)"></p-button> -->
-    <p-button label="Excluir" severity="danger" *ngIf="contatoSelecionado.id !== undefined" (click)="deleteContact(contatoSelecionado.id)"></p-button>
+    <div class="p-dialog-footer">
+      <p-button label="Editar" severity="warn" [routerLink]="['/editarContato', contatoSelecionado.id]"></p-button>
+      <p-button label="Excluir" severity="danger" *ngIf="contatoSelecionado.id !== undefined" (click)="deleteContact(contatoSelecionado.id)"></p-button>
+    </div>
   </div>
 </p-dialog>
 

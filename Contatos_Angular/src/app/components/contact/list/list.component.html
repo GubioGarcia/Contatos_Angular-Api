@@ -18,6 +18,7 @@
       <td>{{ contato.telefone }}</td>
       <td class="buttonsActions">
         <p-button label="Visualizar" severity="info" (click)="viewContact(contato)"></p-button>
+        <p-button label="Editar" severity="warn" [routerLink]="['/editarContato', contato.id]"></p-button>
         <p-button label="Excluir" severity="danger" *ngIf="contato.id !== undefined" (click)="deleteContact(contato.id)"></p-button>
       </td>
     </tr>

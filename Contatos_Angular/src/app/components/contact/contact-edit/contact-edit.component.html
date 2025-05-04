@@ -1,1 +1,24 @@
-<p>contact-edit works!</p>
+<div class="container" *ngIf="contatoSelecionado">
+  <h2>Editar Contato</h2>
+  <form (ngSubmit)="updateContato()">
+    <div class="formAdd">
+      <div class="input-container">
+        <label for="nome"><strong>Nome: </strong></label>
+        <input id="nome" type="text" pInputText [(ngModel)]="contatoSelecionado.nome" name="nome" required />
+
+        <label for="email"><strong>E-mail: </strong></label>
+        <input id="email" type="text" pInputText [(ngModel)]="contatoSelecionado.email" name="email" required />
+
+        <label for="telefone"><strong>Telefone:</strong></label>
+        <input id="telefone" type="text" pInputText [(ngModel)]="contatoSelecionado.telefone" name="telefone" required />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button pButton type="submit" label="Salvar" class="p-button-success"></button>
+      <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="router.navigate(['/listarContatos'])"></button>
+    </div>
+  </form>
+</div>
+
+<p-toast></p-toast>

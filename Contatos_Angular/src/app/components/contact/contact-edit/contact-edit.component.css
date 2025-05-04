@@ -1,0 +1,36 @@
+.formAdd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-right: 5px;
+  margin-left: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.mensagem-sucesso {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.mensagem-erro {
+  color: red;
+  margin-bottom: 10px;
+}

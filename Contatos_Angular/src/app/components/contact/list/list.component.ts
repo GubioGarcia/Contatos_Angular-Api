@@ -11,12 +11,14 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ContactDetailComponent } from '../contact-detail/contact-detail.component';
+import { ContactEditComponent } from '../contact-edit/contact-edit.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  standalone: true,
   imports: [
-    CommonModule, ButtonModule, FormsModule, DialogModule, TableModule, ToastModule, ConfirmDialogModule, ContactDetailComponent
+    CommonModule, ButtonModule, FormsModule, DialogModule, TableModule,
+    ToastModule, ConfirmDialogModule, ContactDetailComponent, RouterModule
   ],
   providers:[MessageService, ConfirmationService],
   templateUrl: './list.component.html',
@@ -25,6 +27,7 @@ import { ContactDetailComponent } from '../contact-detail/contact-detail.compone
 export class ListComponent implements OnInit {
   contatos: Contact[] = [];
   displayDialogView: boolean = false;
+  displayDialogEdit: boolean = false;
   displayErrorDialog: boolean = false;
   contatoSelecionado?: Contact;
   errorMessage: string = '';
