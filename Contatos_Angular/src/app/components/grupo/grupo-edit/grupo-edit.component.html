@@ -1,0 +1,18 @@
+<div class="container" *ngIf="grupoSelecionado">
+  <h2>Editar Grupo</h2>
+  <form (ngSubmit)="updateGrupo()">
+    <div class="formAdd">
+      <div class="input-container">
+        <label for="nome"><strong>Nome: </strong></label>
+        <input id="nome" type="text" pInputText [(ngModel)]="grupoSelecionado.nome" name="nome" required />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button pButton type="submit" label="Salvar" class="p-button-success"></button>
+      <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="router.navigate(['/listarGrupos'])"></button>
+    </div>
+  </form>
+</div>
+
+<p-toast></p-toast>

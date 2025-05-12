@@ -36,4 +36,12 @@ public class ContactService {
     public void delete(Long id) {
         this.contactRepository.deleteById(id);
     }
+
+    public List<Contact> findFavoritos() {
+        return this.contactRepository.findByFavoritoTrue();
+    }
+
+    public List<Contact> findByGrupoId(Long grupoId) {
+        return contactRepository.findByGrupoId(grupoId);
+    }
 }

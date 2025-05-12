@@ -20,11 +20,23 @@ export class ContactService {
     return this.http.post<Contact>(this.url, contact);
   }
 
+  update(contact: Contact): Observable<Contact> {
+    return this.http.put<Contact>(this.url, contact);
+  }
+
   getById(id: number): Observable<Contact> {
     return this.http.get<Contact>(`${this.url}/${id}`);
   }
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
+  }
+
+  listarPorGrupo(grupoId: number): Observable<Contact[]> {
+    return this.http.get<Contact[]>(`${this.url}/grupo/${grupoId}`);
+  }
+
+  listarFavoritos(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(`${this.url}/favoritos`);
   }
 }

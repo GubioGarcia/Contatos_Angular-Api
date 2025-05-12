@@ -36,6 +36,16 @@ export class HeaderComponent implements OnInit {
             label: 'Adicionar contato',
             icon: 'pi pi-user',
             routerLink: ['/adicionarContato']
+        },
+        {
+          label: 'Grupos',
+          icon: 'pi pi-users',
+          routerLink: ['/listarGrupos']
+        },
+        {
+            label: 'Adicionar grupo',
+            icon: 'pi pi-users',
+            routerLink: ['/adicionarGrupos']
         }
     ];
   }

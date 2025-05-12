@@ -39,4 +39,14 @@ public class ContactController {
     public void deleteContact(@PathVariable Long id) {
         this.contactService.delete(id);
     }
+
+    @GetMapping("/favoritos")
+    public List<Contact> findFavoritos() {
+        return this.contactService.findFavoritos();
+    }
+
+    @GetMapping("/grupo/{grupoId}")
+    public List<Contact> listarPorGrupo(@PathVariable Long grupoId) {
+        return this.contactService.findByGrupoId(grupoId);
+    }
 }

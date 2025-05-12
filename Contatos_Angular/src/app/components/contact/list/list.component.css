@@ -3,3 +3,13 @@
   flex-direction: row;
   gap: 10px;
 }
+
+.pi-star {
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.pi-star-fill.favorito {
+  color: gold;
+  font-size: 1.2rem;
+}

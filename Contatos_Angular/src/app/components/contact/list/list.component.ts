@@ -11,7 +11,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ContactDetailComponent } from '../contact-detail/contact-detail.component';
-import { ContactEditComponent } from '../contact-edit/contact-edit.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -74,6 +73,27 @@ export class ListComponent implements OnInit {
     this.contatoSelecionado = undefined;
     this.contactService.findAll().subscribe((response: Contact[]) => {
       this.contatos = response;
+    });
+  }
+
+  alternarFavorito(contato: Contact) {
+    contato.favorito = !contato.favorito;
+    this.contactService.update(contato).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: contato.favorito ? 'Adicionado aos favoritos' : 'Removido dos favoritos'
+        });
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Não foi possível atualizar o favorito.'
+        });
+        contato.favorito = !contato.favorito;
+      }
     });
   }
 }

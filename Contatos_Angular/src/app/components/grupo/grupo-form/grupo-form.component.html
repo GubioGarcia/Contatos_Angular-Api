@@ -1,0 +1,18 @@
+<h2>{{ isEdit ? 'Editar Grupo' : 'Adicionar Grupo' }}</h2>
+
+<form (ngSubmit)="salvarGrupo()">
+  <div class="formAdd">
+    <div class="input-container">
+      <label for="nome"><strong>Nome do Grupo:</strong></label>
+      <input id="nome" type="text" pInputText [(ngModel)]="nome" name="nome" required />
+    </div>
+  </div>
+
+  <button type="submit" pButton label="{{ isEdit ? 'Salvar Alterações' : 'Adicionar Grupo' }}"></button>
+</form>
+
+<br>
+
+<div *ngIf="mensagem" [ngClass]="tipoMensagem === 'erro' ? 'mensagem-erro' : 'mensagem-sucesso'">
+  {{ mensagem }}
+</div>

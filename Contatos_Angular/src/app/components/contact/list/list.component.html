@@ -5,6 +5,7 @@
 <p-table [value]="contatos" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
     <tr>
+      <th></th>
       <th>Nome</th>
       <th>E-mail</th>
       <th>Telefone</th>
@@ -13,6 +14,14 @@
   </ng-template>
   <ng-template pTemplate="body" let-contato>
     <tr>
+      <td>
+        <i class="pi" [class.pi-star]="!contato.favorito"
+             [class.pi-star-fill]="contato.favorito"
+             [class.favorito]="contato.favorito"
+             (click)="alternarFavorito(contato)"
+             style="cursor: pointer; margin-right: 8px;">
+        </i>
+      </td>
       <td>{{ contato.nome }}</td>
       <td>{{ contato.email }}</td>
       <td>{{ contato.telefone }}</td>
